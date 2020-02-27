@@ -1,0 +1,48 @@
+.how-we-work-card h2, h4 {
+  margin: 20px auto;
+  text-align: center;
+  text-decoration: none;
+
+  a {
+  text-decoration: none;
+  color: #0E0000;
+  }
+}
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.card{
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  margin: 20px auto;
+}
+
+#cocktail-0 {
+  background-image: url(https://images.unsplash.com/photo-1546171753-97d7676e4602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+}
+
+#cocktail-1 {
+  background-image: url(https://images.unsplash.com/photo-1576874208717-bfe3af939a4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+}
+
+#cocktail-2 {
+  background-image: url(https://images.unsplash.com/photo-1556855810-ac404aa91e85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+}
+#cocktail-3 {
+  background-image: url(https://images.unsplash.com/photo-1572363626275-6bcce0f80861?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+}
