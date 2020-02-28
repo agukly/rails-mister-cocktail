@@ -1,11 +1,68 @@
-<h1><%= @cocktail.name %></h1>
-<% @cocktail.doses.each do |dose| %>
+  <div class="container">
+     <div class="row">
+      <div class="show-card col-md-6 mx-auto p-0">
+    <% if @cocktail.photo.attached? %>
+      <div class="cocktail-photo-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+    <% end %>
+  </div>
+    <div class="d-flex flex-column w-100">
+      <h2 class="align-items-center text-center pt-2"><%= @cocktail.name %></h2>
+        <div class="pl-2 text-decoration-none" id="ingredients">
+          <h3>Ingredients:</h3>
+            <div class="d-flex align-items-center">
+                <ul class="d-flex flex-column w-100">
+                  <% @cocktail.doses.each do |dose| %>
+                    <li class="d-flex justify-content-between mr-3">
+                      • <%= dose.description %> <%= dose.ingredient.name %>
+                      <div>
+                        <%= link_to dose_path(dose, cocktail_id: @cocktail.id),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } do %>
+                            <i class="far fa-trash-alt px-1 text-secondary"></i> remove
+                          <% end %>
+                      </div>
+                      <% end %>
+                    </li>
+              </div>
+            </ul>
+          </div>
+            <div class="d-flex align-items-center pl-2 pb-2 "id="add-new-dose">
+              <i class="far fa-edit pr-1 text-secondary"></i>
+              <a href="#" data-toggle="modal" data-target="#exampleModal">Add a new dose</a>
+            </div>
+        </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h2>Ingredients: <%= dose.description %> <%= dose.ingredient.name %></h2>
-  <%= link_to 'Delete a dose', dose_path(dose), method: :delete %>
-  <% end %>
 
 
 
-<%= link_to 'Create a new dose', new_cocktail_dose_path(@cocktail) %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border-radius: 13px !important;">
+      <div class="modal-body">
+        <div class=" container-md my-3">
+        <div class="row w-100 justify-content-center">
+          <div class="col-12">
+            <h2 class="text-center">New dose:</h2>
+              <%= simple_form_for [@cocktail, @dose] do |f| %>
+                <%= f.input :description %>
+                <%= f.association :ingredient %>
+                <%= f.submit class: "btn btn-secondary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 

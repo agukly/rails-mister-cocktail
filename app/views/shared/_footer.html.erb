@@ -1,0 +1,39 @@
+<% if controller_name == "cocktails" && action_name == "show" %>
+  <!-- SHOW FOOTER -->
+  <div class="footer">
+        <div class="footer-links d-flex align-items-center">
+          <i class="far fa-trash-alt pr-1 text-secondary"></i>
+          <%= link_to 'Delete this cocktail', cocktail_path(@cocktail),
+           method: :delete,
+           data: { confirm: "Are you sure?" }%>
+        </div>
+        <div class="footer-links d-flex align-items-center">
+          <i class="fas fa-undo-alt pr-1 text-secondary"></i>
+            <%= link_to 'go back', root_path %>
+        </div>
+  </div>
+
+<% elsif controller_name == "cocktails" && action_name == "index" %>
+  <!-- INDEX FOOTER -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This page is using the beautiful <i class="far fa-images"></i> thanks to unsplash.com
+    </div>
+  </div>
+
+<% elsif controller_name == "cocktails" && action_name == "new" %>
+  <!-- NEW FOOTER -->
+  <div class="footer">
+     <div class="footer-links d-flex align-items-center">
+        <i class="fas fa-undo-alt pr-1 text-secondary"></i>
+          <%= link_to 'go back', root_path %>
+      </div>
+  </div>
+<% end %>

@@ -9,35 +9,20 @@
   <div class="how-we-work-card my-5">
     <h2>GET INSPIRED</h2>
       <div class="cards-container">
-        <% i = 0 %>
-          <% @cocktails.each do |cocktail| %>
+        <% cocktails_example = Cocktail.all.sample(3) %>
+        <% cocktails_example.each do |cocktail| %>
           <%= link_to cocktail_path(cocktail) do %>
-          <div class="card" id="cocktail-<%= i %>">
-            <%= cocktail.name %>
-          </div>
-        <% i+=1 %>
-       <% end %>
-      <% end %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+              <%= cocktail.name %>
+            </div>
+          <% end %>
+        <% end %>
     </div>
   </div>
 
+
   <div class="how-we-work-card my-5">
-    <h4>
-      <%= link_to 'CREATE', new_cocktail_path %> <i class="far fa-edit"></i>
-    </h4>
+    <div class="home-button d-flex justify-content-center align-items-center">
+      <%= link_to 'CREATE', new_cocktail_path %> <i class="far fa-edit pb-1 pl-2"></i>
+    </div>
   </div>
-
-<hr>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This page is using the beautiful <i class="far fa-images"></i> thanks to unsplash.com
-  </div>
-</div>
